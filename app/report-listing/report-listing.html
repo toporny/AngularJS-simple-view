@@ -1,0 +1,37 @@
+<div class="container">
+
+  <h2 class="myh2">Report Listing</h2>
+  <hr class="myhr">
+
+  <p>
+    Billing period:
+    <period yearchange="reportListing.yearchange(message)" years="reportListing.years" selected="reportListing.periodSelected"></period>
+  </p>
+
+
+  <pre style="color:#AAAAAA">DEBUG: Sort by = {{reportListing.propertyName}}; reverse = {{reportListing.reverse}} (month August hardcoded...)</pre>
+    
+  <table class="table-report-listing table table-striped table-hover">
+    <tr>
+      <th ng-click="reportListing.sortBy('name')">Name <span class="sortorder" ng-show="reportListing.propertyName === 'name'" ng-class="{reverse: reportListing.reverse}"></span></th>
+      <th ng-click="reportListing.sortBy('description')">Description <span class="sortorder" ng-show="reportListing.propertyName === 'description'" ng-class="{reverse: reportListing.reverse}"></span></th>
+      <th>Action</th>
+    </tr>
+
+      <tr ng-repeat="raport in reportListing.filteredRaports | orderBy:reportListing.propertyName:reportListing.reverse">
+        <td>{{raport.name}} </td>
+        <td>{{raport.description}} (updated:{{raport.year}})</td>
+   
+        <td><button type="button" ng-click="reportListing.goToDetailReport(raport.id, raport.year)" class="btn btn-info">Run</button></td></td>
+
+      </tr>
+
+      <tr ng-if="reportListing.filteredRaports.length === 0">
+        <td></td>
+        <td>No results found...</td>
+        <td></td>
+      </tr>
+   
+  </table>
+
+</div>

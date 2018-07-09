@@ -1,0 +1,6 @@
+<select
+	name="years"
+	ng-model="vm.selected" 
+	ng-change="vm.yearchange({message:vm.selected})"  
+	ng-options="opt as opt.label for opt in vm.years">  
+</select>

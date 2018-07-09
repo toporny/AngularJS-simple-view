@@ -1,0 +1,34 @@
+
+
+<div class="container">
+
+  <h2 class="myh2">Usage of devices with mobile data subscription. </h2>
+  <hr class="myhr">
+
+   <button type="button" ng-click="mobileData.goBack()" class="back_button btn btn-primary">Back</button>
+
+  <pre style="color:#AAAAAA">DEBUG: Sort by = {{mobileData.propertyName}}; reverse = {{mobileData.reverse}}</pre>
+
+    
+  <table class="table-report-listing table table-striped table-hover">
+    <tr>
+      <th ng-click="mobileData.sortBy('physical')">Device Physical Address <span class="sortorder" ng-show="mobileData.propertyName === 'physical'" ng-class="{reverse: mobileData.reverse}"></span></th>
+      <th ng-click="mobileData.sortBy('usagebytes')">Usage Bytes <span class="sortorder" ng-show="mobileData.propertyName === 'usagebytes'" ng-class="{reverse: mobileData.reverse}"></span></th>
+    </tr>
+
+      <tr ng-repeat="raport in mobileData.data 
+      | orderBy:mobileData.propertyName:mobileData.reverse">
+        <td width="50%">{{raport.physical}}  </td>
+        <td width="50%">{{raport.usagebytes}}</td>
+
+      </tr>
+
+      <tr ng-if="mobileData.data.length === 0">
+        <td></td>
+        <td>No results found...</td>
+        <td></td>
+      </tr>
+   
+  </table>
+
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+
+  <h2 class="myh2">Usage of devices with mobile data subscription. </h2>
+  <hr class="myhr">
+
+   <button type="button" ng-click="landlineAccounts.goBack()" class="back_button btn btn-primary">Back</button>
+
+  <pre style="color:#AAAAAA">DEBUG: Sort by = {{landlineAccounts.propertyName}}; reverse = {{landlineAccounts.reverse}}</pre>
+
+    
+  <table class="table-report-listing table table-striped table-hover">
+    <tr>
+      <th ng-click="landlineAccounts.sortBy('accountid')">Account Id<span class="sortorder" ng-show="landlineAccounts.propertyName === 'accountid'" ng-class="{reverse: landlineAccounts.reverse}"></span></th>
+      <th ng-click="landlineAccounts.sortBy('officelocation')">Office Location <span class="sortorder" ng-show="landlineAccounts.propertyName === 'officelocation'" ng-class="{reverse: landlineAccounts.reverse}"></span></th>
+      <th ng-click="landlineAccounts.sortBy('chargeseuro')">Charges (Euro) <span class="sortorder" ng-show="landlineAccounts.propertyName === 'chargeseuro'" ng-class="{reverse: landlineAccounts.reverse}"></span></th>
+    </tr>
+
+      <tr ng-repeat="raport in landlineAccounts.data 
+      | orderBy:landlineAccounts.propertyName:landlineAccounts.reverse">
+        <td width="33%">{{raport.accountid}}  </td>
+        <td width="33%">{{raport.officelocation}}</td>
+        <td width="33%">{{raport.chargeseuro  | currency : "€" }}</td>
+
+      </tr>
+
+      <tr ng-if="landlineAccounts.data.length === 0">
+        <td></td>
+        <td>No results found...</td>
+        <td></td>
+      </tr>
+   
+  </table>
+
+</div>

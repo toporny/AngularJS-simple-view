@@ -1,0 +1,29 @@
+
+h2.myh2{
+  color: #474f5e;
+}
+
+hr.myhr {
+  border-top: 2px solid #229fd4;
+}
+
+.back_button {
+   float: right;
+   margin-bottom: 10px;
+}
+
+th {
+  background-color: #474f5e;
+  color: white;
+  font-weight: normal;
+}
+
+.sortorder:after {
+  content: '\25b2';   // BLACK UP-POINTING TRIANGLE
+}
+.sortorder.reverse:after {
+  content: '\25bc';   // BLACK DOWN-POINTING TRIANGLE
+}
+
+
+
